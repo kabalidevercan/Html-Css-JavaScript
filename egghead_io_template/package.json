@@ -1,0 +1,19 @@
+{
+  "name": "egghead",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kabalidevercan/Html-Css-JavaScript.git"
+  },
+  "author": "Ercan Kabali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kabalidevercan/Html-Css-JavaScript/issues"
+  },
+  "homepage": "https://github.com/kabalidevercan/Html-Css-JavaScript#readme"
+}
