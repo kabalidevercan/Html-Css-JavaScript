@@ -16,6 +16,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+    box-sizing: border-box;
 }
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -25,6 +26,7 @@ body {
     font-size: 14px;
 	line-height: 1;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: greenyellow;
 }
 ol, ul {
 	list-style: none;
@@ -59,6 +61,18 @@ img {
     margin: 0 auto;
 }
 
+.btn {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #fff;
+    background: #316aff;
+    border-radius: 4px;
+    letter-spacing: 1px;
+
+}
+
 .header {
    
     background: #141618;
@@ -76,10 +90,159 @@ img {
 }
 
 .header .menu ul li a {
-    font-size: 14px;
+        
     color: rgba(255, 255, 255,.6);
+    line-height: 60px;
+    display: flex;
+    height: 60px;
+    align-items: center;
+
+}
+
+.header .menu ul li a i{
+    margin-right: 10px;
 }
 
 .header .menu ul li a:hover {
     color: #fff;
+}
+
+.header .search {
+    display: flex;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.header .search input{
+    height: 34px;
+    width: 250px;
+
+    background-color: #21252d;
+    padding: 0 10px;
+}
+
+.header .search input::placeholder {
+    color:  rgba(255, 255, 255, .6);
+}
+.header .search button {
+    width: 32px;
+    height: 34px;
+    background: #21252d;
+    color: #fff;
+    cursor: pointer;
+}
+
+.header .search button:hover {
+    background: #316aff;
+}
+
+.header .login-button ul {
+    display: flex;
+}
+
+.header .login-button ul li {
+    margin-left:  15px;
+}
+
+
+
+.header .login-button ul li a {
+    height: 34px;
+    display: block;
+    line-height: 34px;
+    
+    color: rgba(255, 255, 255, .8);
+}
+
+.header .login-button ul li a:hover{
+    color: #fff;
+}
+
+.header .login-button ul li.join-now-btn a {
+    background-color: #36855b ;
+    border-radius: 4px;
+    padding: 0 15px;
+}
+
+
+/* 
+BANNER SECTION
+*/
+
+.banner {
+    
+    background: linear-gradient(170deg,#212A39,#181E28);
+}
+
+.banner .container {
+    min-height: 50vh;
+    box-sizing: border-box;
+    display: flex;
+    padding: 50px 0px;
+    align-items: center;
+}
+
+.banner .container .banner-box {
+    width: 50%;
+    box-sizing: border-box;
+
+}
+
+.banner .container .banner-box img {
+    max-width:  100%;
+}
+
+.banner .container .banner-box.banner-image {
+    padding-left: 150px;
+}
+
+.banner .container .banner-box h1 {
+    font-size: 48px;
+    color: #fff;
+    line-height: 56px;
+}
+
+.banner .container .banner-box h2 {
+    font-size: 24px;
+    color: #80B6BE;
+    margin-top: 10px;
+
+}
+
+
+.banner .container .banner-box .btn {
+    margin-top : 65px;
+    
+}
+
+/* 
+    SECTION 1
+
+*/
+
+
+.section1 {
+    display: flex;
+}
+
+.section1 .lang {
+    display: flex;
+    width: 392px;
+    min-width: 392px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.section1 .lang a {
+    width: 184px;
+    height: 184px;
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
