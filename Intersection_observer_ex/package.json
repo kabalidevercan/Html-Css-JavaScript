@@ -1,0 +1,11 @@
+{
+  "name": "vet_with_intersection_obs",
+  "version": "1.0.0",
+  "description": "it's a cards that contain information about pets in the vet",
+  "main": "index.js",
+  "scripts": {
+    "test": "lol"
+  },
+  "author": "ercanKABALI",
+  "license": "ISC"
+}
