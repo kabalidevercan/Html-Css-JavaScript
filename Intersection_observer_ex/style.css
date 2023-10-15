@@ -1,0 +1,38 @@
+.boxs {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.image {
+    margin-right: 25px;
+    width: 200px;
+    height: 200px;
+    background: darkorange;
+    transform: translateX(calc(-100% - 25px));
+    transition: 500ms transform;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+.text {
+    font-size: 40px;
+    transform: scale(.5);
+    opacity: 0; 
+    transition: 500ms all;
+}
+
+.boxs.active .text {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.boxs.active .image {
+    transform: translateX(0);
+}

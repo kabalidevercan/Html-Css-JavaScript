@@ -1,45 +1,18 @@
-
-const cardContainer = document.querySelector('.card:last-child')
-const cards = document.querySelectorAll('.card')
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        entry.target.classList.toggle('show',entry.isIntersecting)
-         
-    })
-    
-},
-{
-    threshold: 0.9,
-}
-)
-
-const lastCardObserver = new IntersectionObserver(entries => {
-    const lastCard = entries[0]
-    if(!lastCard.isIntersecting) return
-    loadNewCards()
-    lastCardObserver.unobserve(lastCard.target)
-    lastCardObserver.observe(document.querySelector('.card:last-child'))
-
-}, {}
-
-)
-
-lastCardObserver.observe(document.querySelector('.card:last-child'))
-
-cards.forEach(card => {
-    observer.observe(card)
-})
+const targets = document.querySelectorAll('.boxs')
+let container  = document.getElementById('container')
 
 
 
-
-function loadNewCards () {
-    for(let i = 0; i < 10; i++) {
-        const card = document.createElement('div')
-        card.textContent = 'New Card'
-        card.classList.add('card')
-        observer.observe(card)
-        cardContainer.append(card)
+const callback = (entries) => {
+    for(let entry of entries){    
+        entry.target.classList.toggle('active',entry.isIntersecting)
     }
 }
+
+const options = {
+    threshold : 0.5
+}
+
+const observer = new IntersectionObserver(callback,options)
+
+targets.forEach((box) => observer.observe(box))
