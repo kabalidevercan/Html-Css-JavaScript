@@ -11,15 +11,8 @@ const observer = new IntersectionObserver(entries => {
 },
 {
     threshold: 0.9,
-    
-    
 }
 )
-
-
-
-
-
 
 const lastCardObserver = new IntersectionObserver(entries => {
     const lastCard = entries[0]
