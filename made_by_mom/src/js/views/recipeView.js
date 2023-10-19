@@ -1,62 +1,13 @@
+import View from './view.js'
+
 import icons from 'url:../../img/icons.svg'; // PARSEL 2
 import  {Fraction} from 'fractional';
 
 
-class RecipeView {
-#parentElement = document.querySelector('.recipe')
-#data;
-#errorMessage = 'We couldnt find that recipe.Please try another one!'
-#message = '';
-render(data){
-    this.#data  = data
-    const markup = this.#generateMarkup()
-    this.#clear()
-    this.#parentElement.insertAdjacentHTML('afterbegin',markup)
-}
-
-
-      #clear(){
-        this.#parentElement.innerHTML = ''
-      }
-
-
-       renderSpinner(){
-        const markup = `<div class="spinner">
-        <svg>
-          <use href="${icons}#icon-loader"></use>
-        </svg>
-      </div>`;
-      this.#clear();
-      this.#parentElement.insertAdjacentHTML('afterbegin',markup)
-    }
-
-    renderError(message = this.#errorMessage){
-      const markup = `<div class="error">
-      <div>
-        <svg>
-          <use href="${icons}#icon-alert-triangle"></use>
-        </svg>
-      </div>
-      <p>${message}</p>
-    </div>`
-
-      this.#clear();
-      this.#parentElement.insertAdjacentHTML('afterbegin',markup)
-    }
-
-    renderMessage(message = this.#message){
-      const markup = `<div class="message">
-      <div>
-        <svg>
-          <use href="${icons}#icon-smile"></use>
-        </svg>
-      </div>
-      <p>${message}</p>
-    </div>`
-
-      this.#clear();
-      this.#parentElement.insertAdjacentHTML('afterbegin',markup)
-    }
+class RecipeView extends View{
+_parentElement = document.querySelector('.recipe')
+_errorMessage = 'We couldnt find that recipe.Please try another one!'
+_message = '';
 
 
     addHandlerRender(handler) {
@@ -65,30 +16,30 @@ render(data){
     }
 
     
-    #generateMarkup() {
+    _generateMarkup() {
         return `<figure class="recipe__fig">
-        <img src="${this.#data.image}" alt="${this.#data.title}" class="this.#data__img" />
-        <h1 class="this.#data__title">
-          <span>${this.#data.title}</span>
+        <img src="${this._data.image}" alt="${this._data.title}" class="this._data__img" />
+        <h1 class="this._data__title">
+          <span>${this._data.title}</span>
         </h1>
       </figure>
 
-      <div class="this.#data__details">
-        <div class="this.#data__info">
-          <svg class="this.#data__info-icon">
+      <div class="this._data__details">
+        <div class="this._data__info">
+          <svg class="this._data__info-icon">
             <use href="${icons}#icon-clock"></use>
           </svg>
-          <span class="this.#data__info-data this.#data__info-data--minutes">${this.#data.cookingTime}</span>
-          <span class="this.#data__info-text">minutes</span>
+          <span class="this._data__info-data this._data__info-data--minutes">${this._data.cookingTime}</span>
+          <span class="this._data__info-text">minutes</span>
         </div>
-        <div class="this.#data__info">
-          <svg class="this.#data__info-icon">
+        <div class="this._data__info">
+          <svg class="this._data__info-icon">
             <use href="${icons}#icon-users"></use>
           </svg>
-          <span class="this.#data__info-data this.#data__info-data--people">${this.#data.servings}</span>
-          <span class="this.#data__info-text">servings</span>
+          <span class="this._data__info-data this._data__info-data--people">${this._data.servings}</span>
+          <span class="this._data__info-text">servings</span>
 
-          <div class="this.#data__info-buttons">
+          <div class="this._data__info-buttons">
             <button class="btn--tiny btn--increase-servings">
               <svg>
                 <use href="${icons}#icon-minus-circle"></use>
@@ -102,7 +53,7 @@ render(data){
           </div>
         </div>
 
-        <div class="this.#data__user-generated">
+        <div class="this._data__user-generated">
           <svg>
             <use href="${icons}#icon-user"></use>
           </svg>
@@ -114,25 +65,25 @@ render(data){
         </button>
       </div>
 
-      <div class="this.#data__ingredients">
-        <h2 class="heading--2">this.#data ingredients</h2>
-        <ul class="this.#data__ingredient-list">
-            ${this.#data.ingredients.map(this.#generateMarkupIngredient).join('')}
+      <div class="this._data__ingredients">
+        <h2 class="heading--2">this._data ingredients</h2>
+        <ul class="this._data__ingredient-list">
+            ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
           
 
           
       </div>
 
-      <div class="this.#data__directions">
+      <div class="this._data__directions">
         <h2 class="heading--2">How to cook it</h2>
-        <p class="this.#data__directions-text">
-          This this.#data was carefully designed and tested by
-          <span class="this.#data__publisher">${this.#data.publisher}</span>. Please check out
+        <p class="this._data__directions-text">
+          This this._data was carefully designed and tested by
+          <span class="this._data__publisher">${this._data.publisher}</span>. Please check out
           directions at their website.
         </p>
         <a
-          class="btn--small this.#data__btn"
-          href="${this.#data.sourceUrl}"
+          class="btn--small this._data__btn"
+          href="${this._data.sourceUrl}"
           target="_blank"
         >
           <span>Directions</span>
@@ -144,15 +95,15 @@ render(data){
       
     }
 
-    #generateMarkupIngredient(ing) {
+    _generateMarkupIngredient(ing) {
       
-        return `<li class="this.#data__ingredient">
-        <svg class="this.#data__icon">
+        return `<li class="this._data__ingredient">
+        <svg class="this._data__icon">
           <use href="${icons}#icon-check"></use>
         </svg>
-        <div class="this.#data__quantity">${ing.quantity ? new Fraction(ing.quantity).toString()  : ''}</div>
-        <div class="this.#data__description">
-          <span class="this.#data__unit">${ing.unit}</span>
+        <div class="this._data__quantity">${ing.quantity ? new Fraction(ing.quantity).toString()  : ''}</div>
+        <div class="this._data__description">
+          <span class="this._data__unit">${ing.unit}</span>
           ${ing.description}
         </div>
       </li>`;
