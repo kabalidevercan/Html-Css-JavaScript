@@ -15,6 +15,19 @@ _message = '';
         window.addEventListener(ev,handler))
     }
 
+    addHandlerUpdateServings(handler) {
+      this._parentElement.addEventListener('click', function(e){
+        const btn = e.target.closest('.btn--update-servings');
+        if(!btn) return;
+
+        const updateTo = +btn.dataset.updateTo;
+
+        if(updateTo > 0) handler(updateTo);
+
+
+      })
+    }
+
     
     _generateMarkup() {
         return `<figure class="recipe__fig">
@@ -40,12 +53,12 @@ _message = '';
           <span class="this._data__info-text">servings</span>
 
           <div class="this._data__info-buttons">
-            <button class="btn--tiny btn--increase-servings">
+            <button data-update-to = '${this._data - 1}' class="btn--tiny btn--update-servings">
               <svg>
                 <use href="${icons}#icon-minus-circle"></use>
               </svg>
             </button>
-            <button class="btn--tiny btn--increase-servings">
+            <button data-update-to = '${this._data + 1}' class="btn--tiny btn--update-servings">
               <svg>
                 <use href="${icons}#icon-plus-circle"></use>
               </svg>
@@ -59,9 +72,7 @@ _message = '';
           </svg>
         </div>
         <button class="btn--round">
-          <svg class="">
-            <use href="${icons}#icon-bookmark-fill"></use>
-          </svg>
+          
         </button>
       </div>
 
